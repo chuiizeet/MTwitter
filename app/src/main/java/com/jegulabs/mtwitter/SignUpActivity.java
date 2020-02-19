@@ -7,22 +7,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    Button btnLogin;
-    TextView tvGoSignUp;
+public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
+    Button btnSignUp;
+    TextView tvGoLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_sign_up);
 
 
-        btnLogin = findViewById(R.id.buttonSignIn);
-        tvGoSignUp = findViewById(R.id.textViewGoSignIn);
+        btnSignUp = findViewById(R.id.buttonSignUp);
+        tvGoLogin = findViewById(R.id.textViewGoSignIn);
 
+        btnSignUp.setOnClickListener(this);
+        tvGoLogin.setOnClickListener(this);
 
-        btnLogin.setOnClickListener(this);
-        tvGoSignUp.setOnClickListener(this);
     }
 
     @Override
@@ -31,18 +31,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int id = view.getId();
 
         switch (id) {
-            case R.id.buttonSignIn:
+            case R.id.buttonSignUp:
                 break;
             case R.id.textViewGoSignIn:
-                goToSignUp();
+                goToSignIn();
                 break;
         }
 
     }
 
-    private void goToSignUp() {
+    private void goToSignIn() {
 
-        Intent i = new Intent(MainActivity.this, SignUpActivity.class);
+        Intent i = new Intent(SignUpActivity.this, MainActivity.class);
         startActivity(i);
     }
 }
